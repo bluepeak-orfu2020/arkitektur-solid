@@ -9,5 +9,10 @@ namespace OCP
     class Circle : IShape
     {
         public float Radius { get; set; }
+
+        public double Area()
+        {
+            return Math.Pow(Radius, 2) * Math.PI;
+        }
     }
 }

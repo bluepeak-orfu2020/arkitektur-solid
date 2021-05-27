@@ -10,5 +10,10 @@ namespace OCP
     {
         public float Width { get; set; }
         public float Height { get; set; }
+
+        public double Area()
+        {
+            return 0.5 * Width * Height;
+        }
     }
 }
