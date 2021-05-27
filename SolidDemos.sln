@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidDemos", "SolidDemos\SolidDemos.csproj", "{0C7EBBAE-2365-4630-AFCF-FBFF8D6DBDF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolidDemos", "SolidDemos\SolidDemos.csproj", "{0C7EBBAE-2365-4630-AFCF-FBFF8D6DBDF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRP", "SRP\SRP.csproj", "{A25DF226-DB5F-4B74-98D4-08FC86260493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCP", "OCP\OCP.csproj", "{3B41FCFF-49AC-4987-94C6-2A23F6F142CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{0C7EBBAE-2365-4630-AFCF-FBFF8D6DBDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7EBBAE-2365-4630-AFCF-FBFF8D6DBDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7EBBAE-2365-4630-AFCF-FBFF8D6DBDF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25DF226-DB5F-4B74-98D4-08FC86260493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25DF226-DB5F-4B74-98D4-08FC86260493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25DF226-DB5F-4B74-98D4-08FC86260493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25DF226-DB5F-4B74-98D4-08FC86260493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B41FCFF-49AC-4987-94C6-2A23F6F142CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B41FCFF-49AC-4987-94C6-2A23F6F142CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B41FCFF-49AC-4987-94C6-2A23F6F142CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B41FCFF-49AC-4987-94C6-2A23F6F142CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
