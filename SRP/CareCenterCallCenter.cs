@@ -6,25 +6,17 @@ using System.Threading.Tasks;
 
 namespace SRP
 {
-    class CareCenter
+    class CareCenterCallCenter
     {
-        /*
-          Stakeholder 1: Allow visits in person
-        */
-        public bool AcceptVisitor(DateTime visitTime)
-        {
-            return IsCareCenterOpen(visitTime);
-        }
-
         /*
          Stakeholder 2: Connect incoming call to nurse
         */
         public bool AcceptPhoneCall(DateTime visitTime)
         {
-            return IsCareCenterOpen(visitTime);
+            return IsCallCenterAcceptingCalls(visitTime);
         }
 
-        private bool IsCareCenterOpen(DateTime datetime)
+        private bool IsCallCenterAcceptingCalls(DateTime datetime)
         {
             return datetime.Hour >= 6 && datetime.Hour <= 21;
         }
