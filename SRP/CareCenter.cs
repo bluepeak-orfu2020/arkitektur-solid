@@ -26,7 +26,7 @@ namespace SRP
 
         private bool IsCareCenterOpen(DateTime datetime)
         {
-            return datetime.Hour >= 8 && datetime.Hour <= 17;
+            return datetime.Hour >= 6 && datetime.Hour <= 21;
         }
     }
 }
