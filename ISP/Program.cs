@@ -6,27 +6,35 @@ namespace ISP
     {
         static void Main(string[] args)
         {
-            //IHamburgerRestaurant restaurant = new JoesHamburgerRestaurant();
-            IHamburgerRestaurant restaurant = new BobbysHamburgerRestaurant();
+            IOrderHamburger restaurant = new JoesHamburgerRestaurant();
+            //IOrderHamburger restaurant = new BobbysHamburgerRestaurant();
 
             restaurant.OrderHamburger();
-            restaurant.OrderFries();
-            restaurant.OrderSoda();
+            //restaurant.OrderFries();
+            //restaurant.OrderSoda();
 
             Console.ReadLine();
         }
     }
 
-    interface IHamburgerRestaurant
+    interface IOrderHamburger
     {
         void OrderHamburger();
+    }
+    
+    interface IOrderFries
+    {
 
         void OrderFries();
+    }
+    
+    interface IOrderSoda
+    {
 
         void OrderSoda();
     }
 
-    class JoesHamburgerRestaurant : IHamburgerRestaurant
+    class JoesHamburgerRestaurant : IOrderHamburger, IOrderFries, IOrderSoda
     {
         public void OrderHamburger()
         {
@@ -44,21 +52,11 @@ namespace ISP
         }
     }
 
-    class BobbysHamburgerRestaurant : IHamburgerRestaurant
+    class BobbysHamburgerRestaurant : IOrderHamburger
     {
-        public void OrderFries()
-        {
-            throw new NotImplementedException();
-        }
-
         public void OrderHamburger()
         {
             Console.WriteLine("OrderHamburger from Bobby");
-        }
-
-        public void OrderSoda()
-        {
-            throw new NotImplementedException();
         }
     }
 }
