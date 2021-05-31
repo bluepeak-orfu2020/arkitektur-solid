@@ -5,9 +5,25 @@ namespace DIP
 {
     class Program
     {
+        static ICommandHandler GetHandler(string type)
+        {
+            if (type == "calculator")
+            {
+                return new CalculatorCommandHandler();
+            }
+            else if (type == "customer")
+            {
+                return new CustomerRegistry();
+            }
+            else
+            {
+                throw new Exception($"Unknown command handler: {type}");
+            }
+        }
+
         static void Main(string[] args)
         {
-            ICommandHandler handler = new CalculatorCommandHandler();
+            ICommandHandler handler = GetHandler(args[0]);
 
             string line;
             while ((line = Console.ReadLine()) != "" )
@@ -52,6 +68,28 @@ namespace DIP
             {
                 calculator.IncrementCounter();
                 Console.WriteLine($"Result: {calculator.GetCounterValue()}");
+            }
+        }
+    }
+
+    class CustomerRegistry : ICommandHandler
+    {
+        private List<string> registy = new List<string>() { "Adam", "Berit", "Calle" };
+
+        public void Operation(string command, List<string> args)
+        {
+            if (command == "list")
+            {
+                Console.WriteLine($"Customers: \n");
+                foreach (string customer in registy)
+                {
+                    Console.WriteLine($"  {customer}");
+                }
+            }
+            else if (command == "add")
+            {
+                registy.Add(args[0]);
+                Console.WriteLine($"Added customer: {args[0]}");
             }
         }
     }

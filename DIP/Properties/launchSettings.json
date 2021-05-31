@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DIP": {
+      "commandName": "Project",
+      "commandLineArgs": "calculator"
+    }
+  }
+}
