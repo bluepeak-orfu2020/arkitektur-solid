@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DIP
 {
@@ -6,34 +7,51 @@ namespace DIP
     {
         static void Main(string[] args)
         {
-            Calculator calculator = new Calculator();
+            ICommandHandler handler = new CalculatorCommandHandler();
 
             string line;
             while ((line = Console.ReadLine()) != "" )
             {
                 string[] parts = line.Split(" ");
-                if (parts[0] == "+")
-                {
-                    int value1 = int.Parse(parts[1]);
-                    int value2 = int.Parse(parts[2]);
-                    Console.WriteLine($"Result: {calculator.Add(value1, value2)}");
-                }
-                else if (parts[0] == "-")
-                {
-                    int value1 = int.Parse(parts[1]);
-                    int value2 = int.Parse(parts[2]);
-                    Console.WriteLine($"Result: {calculator.Sub(value1, value2)}");
-                }
-                else if (parts[0] == "set")
-                {
-                    calculator.SetCounter();
-                    Console.WriteLine($"Counter set!");
-                }
-                else if (parts[0] == "inc")
-                {
-                    calculator.IncrementCounter();
-                    Console.WriteLine($"Result: {calculator.GetCounterValue()}");
-                }
+                List<string> data = new List<string>(parts);
+                data.RemoveAt(0); // remove command
+                handler.Operation(parts[0], data);
+            }
+        }
+    }
+
+    interface ICommandHandler
+    {
+        void Operation(string command, List<string> args);
+    }
+
+    class CalculatorCommandHandler : ICommandHandler
+    {
+        private Calculator calculator = new Calculator();
+
+        public void Operation(string command, List<string> args)
+        {
+            if (command == "+")
+            {
+                int value1 = int.Parse(args[0]);
+                int value2 = int.Parse(args[1]);
+                Console.WriteLine($"Result: {calculator.Add(value1, value2)}");
+            }
+            else if (command == "-")
+            {
+                int value1 = int.Parse(args[0]);
+                int value2 = int.Parse(args[1]);
+                Console.WriteLine($"Result: {calculator.Sub(value1, value2)}");
+            }
+            else if (command == "set")
+            {
+                calculator.SetCounter();
+                Console.WriteLine($"Counter set!");
+            }
+            else if (command == "inc")
+            {
+                calculator.IncrementCounter();
+                Console.WriteLine($"Result: {calculator.GetCounterValue()}");
             }
         }
     }
